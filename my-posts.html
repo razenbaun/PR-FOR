@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Ваши статьи
+{% endblock %}
+
+
+{% block body %}
+<div class="container mt-5">
+    <form method="post">
+    <table border="0" class="profile-table">
+        <tr><td><h1><font face="Century Gothic">фильтровать</font></h1></td><td><label for="fl1"></label>
+       <select name="fl1" id="fl1">
+           <option disabled selected>по дате</option>
+           <option value="сначала новые">сначала новые</option>
+           <option value="сначала старые">сначала старые</option>
+       </select></td>
+            <td><label for="fl2"></label>
+       <select name="fl2" id="fl2">
+           <option value="все">все</option>
+           <option value="развлечения">развлечения</option>
+           <option value="игры">игры</option>
+           <option value="животные">животные</option>
+           <option value="кино">кино</option>
+           <option value="еда">еда</option>
+           <option value="музыка">музыка</option>
+           <option value="философия">философия</option>
+           <option value="литература">литература</option>
+           <option value="технологии">технологии</option>
+           <option value="другое">другое</option>
+       </select></td>
+        <td><input type="submit" class="btn btn-primary" value="применить "></td></tr>
+    </table><br><br>
+    </form>
+    <h1><font face="Century Gothic">Статьи</font></h1>
+
+    {% for i in articles %}
+    <div class="alert alert-info">
+        <h2><font face="Century Gothic">Категория:{{ i.rank }}</font></h2>
+        <p><font face="Century Gothic">{{ i.title }}</font></p>
+        <p><font face="Century Gothic">{{ i.intro }}</font></p>
+        <p><b><font face="Century Gothic">Добавлено {{ i.date.date() }} пользователем {{ i.author }}</font></b></p>
+        <a href="/posts/{{ i.id }}" class="btn btn-warning"><font face="Century Gothic">Подробнее</font></a>
+
+    </div>
+    {% endfor  %}
+
+</div>
+{% endblock %}

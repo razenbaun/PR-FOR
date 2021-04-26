@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Аккаунт
+{% endblock %}
+
+
+{% block body %}
+<div class="container mt-5">
+{% if flag == 0 %}
+    <h1><font face="Century Gothic">Вход в аккаунт не выполнен!</font></h1>
+    <form method="post">
+        <a class="btn btn-success" href="/sign-in"><font face="Century Gothic">Войти</font></a>
+        <a class="btn btn-success" href="/register"><font face="Century Gothic">Зарегистрироваться</font></a>
+    </form>
+{% endif %}
+{% if flag == 1 %}
+    <table border="0" class="profile-table">
+        <tr><td valign="top">
+            <div class="profile-ava"><img src="static/img/user.png"></div>
+        </td><td><h1><font face="Century Gothic">Имя пользователя: {{ nick }}</font></h1>
+    <a class="btn btn-primary" href="/my-posts"><font face="Century Gothic">все ваши статьи</font></a>
+        <p><p><a class="btn btn-danger" href="/sign-out"><font face="Century Gothic">Выйти</font></a></p></td></tr>
+    </table>
+{% endif %}
+</div>
+{% endblock %}

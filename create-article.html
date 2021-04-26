@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Добавление статьи
+{% endblock %}
+
+
+{% block body %}
+<div class="container mt-5">
+    {% if flag == 1 %}
+    <h1><font face="Century Gothic">Добавление статьи</font></h1>
+   <form method="post">
+       <input type="text" name="title" id="title" class="form-control" placeholder="Введите название"><br>
+       <textarea name="intro" id="intro" class="form-control" placeholder="Введите анонс"></textarea><br>
+       <textarea name="text" id="text" class="form-control" placeholder="Введите основной текст"></textarea><br>
+       <label for="rank"></label>
+       <select name="rank" id="rank">
+           <option disabled selected>Укажите категорию</option>
+           <option value="развлечения">развлечения</option>
+           <option value="игры">игры</option>
+           <option value="животные">животные</option>
+           <option value="кино">кино</option>
+           <option value="еда">еда</option>
+           <option value="музыка">музыка</option>
+           <option value="философия">философия</option>
+           <option value="литература">литература</option>
+           <option value="технологии">технологии</option>
+           <option value="другое">другое</option>
+       </select><br><br>
+       <input type="submit" class="btn btn-success" value="Добавить">
+   </form>
+    {% endif %}
+    {% if flag == 0 %}
+    <h1><font face="Century Gothic">Чтобы добавить статью необходимо зарегистрироваться или войти в аккаунт!</font></h1>
+    {% endif %}
+
+</div>
+{% endblock %}

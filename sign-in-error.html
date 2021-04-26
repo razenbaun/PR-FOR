@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Вход
+{% endblock %}
+
+
+{% block body %}
+<div class="container mt-5">
+<form method="post">
+  <form>
+      <h1><font face="Century Gothic">Имя пользователя или пароль введены неверно!</font></h1>
+      <input type="text" name="nickname" id="nickname" class="form-control" placeholder="Nickname"><br>
+      <input type="text" name="password" id="password" class="form-control" placeholder="Password"><br>
+      <input type="submit" class="btn btn-primary" value="Войти">
+  </form>
+</form>
+</div>
+{% endblock %}

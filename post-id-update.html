@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Добавление статьи
+{% endblock %}
+
+
+{% block body %}
+<div class="container mt-5">
+    {% if flag == 1 %}
+    {% if nick == article.author %}
+    <h1><font face="Century Gothic">Редактирование статьи</font></h1>
+   <form method="post">
+       <input type="text" name="title" id="title" class="form-control" value="{{ article.title }}" placeholder="Введите название"><br>
+       <textarea name="intro" id="intro" class="form-control" placeholder="Введите анонс">{{ article.intro }}</textarea><br>
+       <textarea name="text" id="text" class="form-control" placeholder="Введите основной текст">{{ article.text }}</textarea><br>
+       <label for="rank"></label>
+       <select name="rank" id="rank">
+           <option disabled selected>Укажите категорию</option>
+           <option value="развлечения">развлечения</option>
+           <option value="игры">игры</option>
+           <option value="животные">животные</option>
+           <option value="кино">кино</option>
+           <option value="еда">еда</option>
+           <option value="музыка">музыка</option>
+           <option value="философия">философия</option>
+           <option value="литература">литература</option>
+           <option value="технологии">технологии</option>
+           <option value="другое">другое</option>
+       </select><br><br>
+       <input type="submit" class="btn btn-success" value="Редактировать">
+   </form>
+    {% endif %}
+    {% endif %}
+    {% if flag == 0 %}
+    <h1><font face="Century Gothic">Чтобы редактировать статью необходимо зарегистрироваться или войти в аккаунт!</font></h1>
+    {% endif %}
+    {% if nick != article.author %}
+    <h1><font face="Century Gothic">Вы не можете редактировать чужую статью!</font></h1>
+{% endif %}
+
+</div>
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{{ article.title }}
+{% endblock %}
+
+
+{% block body %}
+<div class="container mt-5">
+    {% if flag == 1 %}
+    {% if nick == article.author %}
+   <h1>Вы правда хотите удалить статью?</h1>
+
+    <a href="/posts/{{ i.id }}/delete-confirmed" class="btn btn-danger"> да </a>
+
+
+    </div>
+{% endif %}
+{% endif %}
+</div>
+{% if flag == 0 %}
+<h1><font face="Century Gothic">Необходимо зарегистрироваться или войти в аккаунт!</font></h1>
+{% endif %}
+{% if nick != article.author %}
+<h1><font face="Century Gothic">Вы не можете удалить чужую статью!</font></h1>
+{% endif %}
+{% endblock %}
